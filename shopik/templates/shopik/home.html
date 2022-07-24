@@ -1,0 +1,16 @@
+{% extends 'shopik/base.html'%}
+{% block page %}
+
+	{% block content %}
+		{%for product in products%}
+        <a href="{% url "product_detail" product.id %}">
+			<div class="product">
+			<img src="{{product.src}}" alt="">
+			<p>{{product.name}}</p>
+			<p>{{product.price}} руб.</p>
+			</div>
+		</a>
+		{% endfor %}
+	{% endblock %}
+
+{% endblock %}

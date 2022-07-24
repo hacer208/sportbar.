@@ -1,0 +1,18 @@
+{% extends 'shopik/base.html'%}
+{% block page %}
+
+	{% block content %}
+		<div class="product_detail">
+			<img style="width:200px; height:200px" src="{{product.src}}">
+			<p>{{product.name}}</p>
+			<p>{{product.price}}</p>
+			<p>{{product.description}}</p>
+		</div>
+		<form method="post">
+			{% csrf_token %}
+			<input type="number" name="count" max="10" min="1" value="1">
+			<input type="submit" value="Добавить в корзину">
+		</form>
+	{% endblock %}
+
+{% endblock %}

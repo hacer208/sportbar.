@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang=ru>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title>Shopik</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" style="left: 43%; width: 30px; height: 30px; background-repeat: no-repeat; background-position: center; background-size:contain ; border: none; background-image: url('{% static "image/x.png" %}');" class="closebtn" onclick="closeNav()"></a>
+        {% for category in categories %}
+            <a href="{% url "category" category.slug %}">{{category.name}}</a>
+        {% endfor %}
+    </div>
+    <header>
+        <div class="category_menu" onclick="openNav()"></div>
+        <a class="logo" href="{% url "home" %}">Shopik</a>
+        <nav>
+            <a href="">О магазине</a>
+            <a href="">Контакты</a>
+            <a href="{% url "basket" %}">Корзина</a>
+            <div><a href="">Вход/</a>
+                <a href="">Выход</a></div>
+            
+        </nav>
+        <div class="media_menu">
+            <a href=""><img src="{% static "image/1.png" %}" alt="О магазине"></a>
+            <a href=""><img src="{% static "image/2.png" %}" alt="О нас"></a>
+            <a href=""><img src="{% static "image/3.png" %}" alt="Корзина"></a>
+        </div>
+    </header>
+    {% block page %}
+        {% block content %}
+        {% endblock %}
+    {% endblock %}
+    <script src="{% static "js/js.js" %}"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'shopik/base.html'%}
+{% block page %}
+
+	{% block content %}
+		<p>Корзина</p>
+		{%for item in products%}
+			<p>{{item.product}}</p>
+			<p>{{item.count}}</p>
+			<p>{%  %}</p>
+		{%endfor%}
+	{% endblock %}
+
+{% endblock %}
