@@ -29,4 +29,7 @@ def basket(request):
         'products': Basket.objects.all(),
         'product': Products,
     }
+    if request.POST:
+        for item in Basket.objects.all():
+            item.delete()
     return render(request,'shopik/basket.html',context)

@@ -6,8 +6,12 @@
 		{%for item in products%}
 			<p>{{item.product}}</p>
 			<p>{{item.count}}</p>
-			<p>{%  %}</p>
+			<p>{{item.product.price}}</p>
 		{%endfor%}
+		<form method="post">
+			{% csrf_token %}
+			<input type="submit" value="Очистить корзину">
+		</form>
 	{% endblock %}
 
 {% endblock %}
